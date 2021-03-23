@@ -10,6 +10,7 @@ on:
 
 env:
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+  IMAGE_REPOSITORY: fabienzucchet/foobar
 
 jobs:
   # Run all unit tests.
@@ -31,3 +32,19 @@ jobs:
       # Run unit tests.
       - name: Run unit tests
         run: go test -v ./...
+
+  # Build and release.
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      # Check out source code.
+      - name: Check out source code
+        uses: actions/checkout@v2
+
+      # Build and push container image.
+      - name: Build and push container image
+        uses: docker/build-push-action@v1
+        with:
+          repository: ${{ env.IMAGE_REPOSITORY }}
+          tag_with_ref: true
+          tag_with_sha: true
