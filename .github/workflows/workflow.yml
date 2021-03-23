@@ -74,7 +74,7 @@ jobs:
 
       # Configure kubectl.
       - name: Configure kubectl
-      id: write_file
+        id: write_file
         uses: timheuer/base64-to-file@v1
         with:
           fileName: kubeconfig.yml
