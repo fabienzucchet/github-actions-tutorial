@@ -8,6 +8,9 @@ on:
     branches:
       - master
 
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+
 jobs:
   # Run all unit tests.
   run-tests:
