@@ -74,7 +74,10 @@ jobs:
 
       # Configure kubectl.
       - name: Configure kubectl
-        run: echo "test" | base64 --decode > kubeconfig.yml
+        uses: timheuer/base64-to-file@v1
+        with:
+          fileName: kubeconfig.yml
+          encodedString: ${{ secrets.KUBECONFIG }}
 
       # Set up Kustomize.
       - name: Set up Kustomize
