@@ -97,4 +97,4 @@ jobs:
 
       # Validate deployment.
       - name: Validate deployment
-        run: kubectl --kubeconfig kubeconfig.yml rollout status --timeout 120s deployment/foobar
+        run: kubectl --kubeconfig ${{ steps.write_file.outputs.filePath }} rollout status --timeout 120s deployment/foobar
