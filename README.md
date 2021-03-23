@@ -1,5 +1,7 @@
 # Github Actions tutorial
 
+![Actions status](https://github.com/fabienzucchet/github-actions-tutorial/actions/workflows/workflow.yml/badge.svg)
+
 This tutorial will guide you through building a functional CI/CD pipeline with
 Github Actions. You will create a workflow that automatically runs unit tests on
 all pull requests, and deploys the latest version of the master branch to a
