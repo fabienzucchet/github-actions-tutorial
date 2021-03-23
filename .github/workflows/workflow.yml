@@ -74,6 +74,7 @@ jobs:
 
       # Configure kubectl.
       - name: Configure kubectl
+      id: write_file
         uses: timheuer/base64-to-file@v1
         with:
           fileName: kubeconfig.yml
@@ -92,7 +93,7 @@ jobs:
 
       # Deploy to Kubernetes.
       - name: Deploy to Kubernetes
-        run: kubectl --kubeconfig kubeconfig.yml apply --kustomize manifests/
+        run: kubectl --kubeconfig ${{ steps.write_file.outputs.filePath }} apply --kustomize manifests/
 
       # Validate deployment.
       - name: Validate deployment
