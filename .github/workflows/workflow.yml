@@ -35,6 +35,7 @@ jobs:
 
   # Build and release.
   build-and-release:
+    needs: run-tests
     runs-on: ubuntu-latest
     steps:
       # Check out source code.
